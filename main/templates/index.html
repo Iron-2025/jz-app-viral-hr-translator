@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR Approved Ways to Tell Off Dumb People at Work</title>
+    <link rel="icon" href="{{ url_for('static', filename='thumb_square_800x800.avif') }}" type="image/avif">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="title">HR Approved Ways to Tell Off Dumb People at Work</h1>
+        </header>
+
+        <!-- Posts Container -->
+        <div id="posts-container" class="posts-container">
+            <!-- Posts will be dynamically inserted here -->
+        </div>
+
+        <!-- Loading Indicator -->
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <span>Loading more...</span>
+        </div>
+
+        <!-- End Message -->
+        <div id="end-message" class="end-message hidden">
+        </div>
+    </div>
+
+    <!-- Share Modal -->
+    <div id="share-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3>Share this thought</h3>
+            <p id="share-text"></p>
+            <div class="share-links">
+                <a id="share-twitter" href="#" target="_blank">X (Twitter)</a>
+                <a id="share-facebook" href="#" target="_blank">Facebook</a>
+                <a id="share-reddit" href="#" target="_blank">Reddit</a>
+            </div>
+            <div class="copy-link-container">
+                <input type="text" id="share-url" readonly>
+                <button id="copy-link-btn">Copy Link</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
