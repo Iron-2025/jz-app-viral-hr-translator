@@ -39,6 +39,7 @@ JOKES_PER_PAGE = 10
 def home():
     return redirect(url_for('index'))  # This redirects '/' to '/tools/cover-letter-generator'
 
+@app.route('/tools/hr-approved-ways-to-tell-off-dumb-people-at-work')
 @app.route('/tools/hr-approved-ways-to-tell-off-dumb-people-at-work/')
 def index():
     return render_template('index.html')
