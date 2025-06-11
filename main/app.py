@@ -2,8 +2,16 @@ import json
 import sqlite3
 from flask import Flask, render_template, jsonify, g, request, redirect, url_for
 
-app = Flask(__name__)
-DATABASE = 'main/data/app_data.db'
+import os
+
+# Get the directory where app.py is located
+basedir = os.path.abspath(os.path.dirname(__file__))
+
+app = Flask(__name__, 
+           static_folder='static',
+           static_url_path='/static',
+           template_folder='templates')
+DATABASE = os.path.join(basedir, 'data', 'app_data.db')
 
 def get_db():
     db = getattr(g, '_database', None)
@@ -27,7 +35,8 @@ def init_db():
 
 # Load data from data.json
 try:
-    with open('main/data/data.json', 'r', encoding='utf-8') as f:
+    data_file_path = os.path.join(basedir, 'data', 'data.json')
+    with open(data_file_path, 'r', encoding='utf-8') as f:
         all_joke_pairs = json.load(f)
 except Exception as e:
     print(f"Error loading or parsing data/data.json: {e}")
